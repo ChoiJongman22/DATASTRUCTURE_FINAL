@@ -33,6 +33,7 @@ public:
 			cout << "공백상태 오류 또는 삭제 위치 오류";
 		}
 	}
+
 	int getEntry(int pos) {
 		return data[pos];
 	}
@@ -69,14 +70,11 @@ int main() {
 	list.insert(list.size(), 40);
 	list.insert(2, 50);
 	list.display();
-
 	list.remove(2);
 	list.remove(list.size() - 1);
 	list.remove(0);
 	list.replace(1, 90);
 	list.display();
-
 	list.clear();
 	list.display();
-
 }
