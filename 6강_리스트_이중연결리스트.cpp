@@ -81,6 +81,3 @@ public:
 	}
 	void clear() { while (!isEmpty())delete remove(0); }
 };
-int main() {
-
-}
