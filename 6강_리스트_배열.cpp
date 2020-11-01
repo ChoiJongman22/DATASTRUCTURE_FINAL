@@ -4,8 +4,8 @@ using namespace std;
 
 class ArrayList {
 private:
-	int data[MAX];
-	int length;
+	int data[MAX];//정적 할당
+	int length; //요소의 개수
 public:
 	ArrayList() { length = 0; }
 	bool isFull() { return length == MAX; }
@@ -14,7 +14,7 @@ public:
 		if (!isFull() && pos >= 0 && pos <= length) {
 			for (int i = length; i > pos; i--) {
 				data[i] = data[i - 1];
-			}
+			}	
 			data[pos] = e;
 			length++;
 		}

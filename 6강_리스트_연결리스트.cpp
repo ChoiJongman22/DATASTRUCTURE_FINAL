@@ -29,8 +29,8 @@ public:
 		}
 		return removed;
 	}
-
 };
+
 class LinkedList {
 private:
 	Node org;//헤드노드
