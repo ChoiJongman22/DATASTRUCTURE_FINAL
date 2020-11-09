@@ -30,6 +30,7 @@ public:
 	void setRoot(BinaryNode* node) { root = node; }
 	BinaryNode* getRoot() { return root; }
 	bool isEmpty() { return root == NULL; }
+
 	void inorder() {
 		cout << endl << " inorder: ";
 		inorder(root);
@@ -41,6 +42,7 @@ public:
 			inorder(node->getRight());
 		}
 	}
+
 	void preorder(){
 		cout << endl << " preorder: ";
 		preorder(root);
@@ -52,11 +54,11 @@ public:
 			preorder(node->getRight());
 		}
 	}
+
 	void postorder() {
 		cout << endl << " postorder: ";
 		postorder(root);
 	}
-
 	void postorder(BinaryNode* node) {
 		if (node != NULL) {
 			postorder(node->getLeft());
@@ -69,11 +71,13 @@ public:
 
 int main() {
 	BinaryTree tree;
-	BinaryNode* d = new BinaryNode('D', NULL, NULL);
-	BinaryNode* e = new BinaryNode('E', NULL, NULL);
-	BinaryNode* b = new BinaryNode('B', d, e);
+	BinaryNode* g = new BinaryNode('G', NULL, NULL);
+	BinaryNode* h = new BinaryNode('H', NULL, NULL);
+	BinaryNode* e = new BinaryNode('E', g, h);
 	BinaryNode* f = new BinaryNode('F', NULL, NULL);
-	BinaryNode* c = new BinaryNode('C', f, NULL);
+	BinaryNode* c = new BinaryNode('C', e, f);
+	BinaryNode* d = new BinaryNode('D', NULL, NULL);
+	BinaryNode* b = new BinaryNode('B', d, NULL);
 	BinaryNode* a = new BinaryNode('A', b, c);
 	tree.setRoot(a);
 	tree.inorder();
