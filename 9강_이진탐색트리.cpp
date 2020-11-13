@@ -132,7 +132,6 @@ public:
 		cout << endl;
 	}
 
-
 	//노드 개수 구하는 함수
 	int getCount() { return isEmpty() ? 0 : getCount(root); }
 	int getCount(BinaryNode* node) {
@@ -192,6 +191,7 @@ public:
 			return searchRecur(n->getRight(), key);
 		}
 	}
+
 	BinaryNode* searchIter(BinaryNode* n, int key) {
 		while (n != NULL) {
 			if (key == n->getData()) {
@@ -299,7 +299,7 @@ public:
 			node->setData(succ->getData());
 			node = succ;
 		}
-		//delete node;
+		delete node;
 	}
 	
 };
