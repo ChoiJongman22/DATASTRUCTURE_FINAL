@@ -168,7 +168,7 @@ public:
 
 
 	BinaryNode* search(int key) {
-		BinaryNode* node = searchIter(root, key);
+		BinaryNode* node = searchRecur(root, key);
 		if (node != NULL) {
 			cout << "탐색성공: 키값이 " << node->getData() << "인 노드 = " << node << endl;
 		}
@@ -176,7 +176,6 @@ public:
 			cout << "탐색실패: 키값이 " << key << "인 노드없음 " << endl;
 		}
 		return node;
-
 	}
 	
 	BinaryNode* searchRecur(BinaryNode* n, int key) {
@@ -192,7 +191,7 @@ public:
 		}
 	}
 
-	BinaryNode* searchIter(BinaryNode* n, int key) {
+	/*BinaryNode* searchIter(BinaryNode* n, int key) {
 		while (n != NULL) {
 			if (key == n->getData()) {
 				return this;
@@ -204,7 +203,7 @@ public:
 				n = n->getRight();
 		}
 		return NULL;
-	}
+	}*/
 
 	void insert(BinaryNode* n){
 		if (n == NULL)return;
@@ -251,7 +250,6 @@ public:
 		else {
 			remove(parent, node);
 		}
-	
 	}
 
 	void remove(BinaryNode* parent, BinaryNode* node) {
@@ -289,7 +287,7 @@ public:
 				succp = succ;
 				succ = succ->getLeft();
 			}
-
+			
 			if (succp->getLeft() == succ) {
 				succp->setLeft(succ->getRight());
 			}
