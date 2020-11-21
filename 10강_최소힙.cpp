@@ -107,17 +107,17 @@ int main() {
 	heap.remove();
 	heap.display();
 	heap.insert(7);
-	heap.display();*/
-	
+	heap.display();
+	*/
 
 	//허프만 코드 확인하는 코드입니다!
 
-	heap.insert(15);
+	/*heap.insert(15);
 	heap.insert(12);
 	heap.insert(8);
 	heap.insert(6);
 	heap.insert(4);
-	heap.display();
+	heap.display();*/
 	/*heap.remove();
 	heap.remove();
 	heap.display();

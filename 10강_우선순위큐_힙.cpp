@@ -80,29 +80,29 @@ int main(){
 	heap.insert( 9);
 	heap.insert( 3);
 	heap.insert( 7);*/
-	heap.display();
-	//여기서 순서를 바꿔보면 다르게 출력된다는 걸 알 수 있다.
-	heap.insert(10);
-	heap.insert(5);
-	heap.insert(30);
-	heap.insert(3);
-	heap.insert(7);
-	heap.insert(9);
-	heap.insert(8);
-	heap.display();
-	
-	//그치?
-	heap.remove();
-	heap.display();
-	heap.remove();
-	heap.display();
+	//heap.display();
+	////여기서 순서를 바꿔보면 다르게 출력된다는 걸 알 수 있다.
+	//heap.insert(10);
+	//heap.insert(5);
+	//heap.insert(30);
+	//heap.insert(3);
+	//heap.insert(7);
+	//heap.insert(9);
+	//heap.insert(8);
+	//heap.display();
+	//
+	////그치?
+	//heap.remove();
+	//heap.display();
+	//heap.remove();
+	//heap.display();
 
-	/*heap.insert(2);
+	heap.insert(2);
 	heap.insert( 5);
 	heap.insert(6);
 	heap.insert( 8);
 	heap.insert( 9);
 	heap.insert( 10);
-	heap.display();*/
+	heap.display();
 	cout << endl;
 }
