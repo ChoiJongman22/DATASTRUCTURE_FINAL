@@ -39,7 +39,7 @@ public:
 	HeapNode remove(){
 		if (isEmpty()) return NULL;
 		HeapNode item = node[1];
-		HeapNode last = node[size--];//node[size-1]; 해도 됩니다!
+		HeapNode last = node[size--];
 		int parent = 1;
 		int child = 2;
 		while (child <= size) {
@@ -53,7 +53,6 @@ public:
 		}
 		node[parent] = last;
 		return item;
-	
 	}
 	HeapNode find() { return node[1]; }//최상단 값을 찾으면 되는데 최고 높은 인덱스는 0이 아니라 1이야
 
