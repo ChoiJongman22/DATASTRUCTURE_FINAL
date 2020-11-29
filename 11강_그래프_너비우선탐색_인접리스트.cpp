@@ -54,7 +54,7 @@ public:
 
 	void insertEdge(int u, int v) {
 		adj[u] = new Node(v, adj[u]);
-		adj[v] = new Node(u, adj[v]);
+		//adj[v] = new Node(u, adj[v]);
 	}
 
 	void display() {

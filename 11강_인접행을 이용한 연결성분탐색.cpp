@@ -36,6 +36,10 @@ public:
 		setEdge(u, v, 1);
 		setEdge(v, u, 1);
 	}
+
+	int getSize() {
+		return size;
+	}
 	void display(FILE* fp = stdout) {
 		fprintf(fp, "%d\n", size);
 		for (int i = 0; i < size; i++) {
@@ -117,20 +121,47 @@ public:
 		}
 	}
 
-	void findConnectedComponent() {
+	
+	int findBridge(ConnectedComponentGraph g) {
+		int i, j;
+		int count = 0;
+		g.resetVisited();
+
+		for (i = 0; i < g.getSize(); i++) {
+			for (j = 0; j < i; j++) {
+				if (g.getEdge(i, j) != 0) {
+					g.setEdge(i, j, 0);
+					g.setEdge(j, i, 0);
+
+					g.resetVisited();
+					if (g.findConnectedComponent() > 1) {
+						printf(" Bridge%d: %c-%c\n", count + 1, g.getVertex(i), g.getVertex(j));
+						count++;
+					}
+					g.setEdge(i, j, 1);
+					g.setEdge(j, i, 1);
+				}
+			}
+		}
+		return count;	
+    }
+
+
+	int findConnectedComponent() {
 		int count = 0;
 		for (int i = 0; i < size; i++) {
 			if (visited[i] == false) {
 				labelDFS(i, ++count);
 			}
 		}
-		cout << "그래프의 연결성분 개수 == " << count << endl;
+		/*cout << "그래프의 연결성분 개수 == " << count << endl;
 		for (int i = 0; i < size; i++) {
 			cout << getVertex(i) << " = " << label[i]<<" ";
 		}
-		cout << endl;
-
+		cout << endl;*/
+		return count;
 	}
+
 };
 
 
@@ -148,5 +179,6 @@ void main() {
 	g.display();
 	g.resetVisited();
 	g.findConnectedComponent();
+	g.findBridge(g);
 
 }

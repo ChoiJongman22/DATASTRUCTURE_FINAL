@@ -36,6 +36,7 @@ public:
 		setEdge(u, v, 1);
 		setEdge(v, u, 1);
 	}
+
 	void display(FILE* fp = stdout) {
 		fprintf(fp, "%d\n", size);
 		for (int i = 0; i < size; i++) {

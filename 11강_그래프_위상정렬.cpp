@@ -176,7 +176,7 @@ public:
 void main() {
 	TopoSortGraph g;
 	for (int i = 0; i < 6; i++) {
-		g.insertVertex(i);
+		g.insertVertex('A'+i);//Ã¥°ú ´Ù¸¥ Á¡  ÀúÀÚ ³ª»Û³ð..¤Ñ¤Ñ
 	}
 	g.insertDirEdge(0, 2);
 	g.insertDirEdge(0, 3);
