@@ -26,10 +26,10 @@ public:
 			}
 		}
 	}
-
+	
 	void insertVertex(char name) {
 		if (!isFull())vertices[size++] = name;
-		else cout << "Error: 그래프 점점 개수 초과" << endl;
+		else cout << "Error: 그래프 정점 개수 초과" << endl;
 	}
 	
 	void insertEdge(int u, int v) {
@@ -66,7 +66,6 @@ public:
 				}
 			}
 			fclose(fp);
-
 		}
 	}
 
@@ -74,7 +73,7 @@ public:
 		FILE* fp = fopen(filename, "w");
 		if (fp != NULL) {
 			display(fp);
-			fclose(fp);
+			fclose(fp);	
 		}
 	}
 };
@@ -84,6 +83,7 @@ void main() {
 	for (int i = 0; i < 4; i++) {
 		g.insertVertex('A' + i);
 	}
+
 	g.insertEdge(0, 1);
 	g.insertEdge(0, 3);
 	g.insertEdge(1, 2);

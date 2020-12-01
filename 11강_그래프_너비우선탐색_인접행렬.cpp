@@ -2,13 +2,13 @@
 #include <iostream>
 #define MAX 100
 using namespace std;
-#define MAXL 256
+
 
 class AdjMatGraph {
 protected:
 	int size;
-	char vertices[MAXL];
-	int adj[MAXL][MAXL]; //정적할당
+	char vertices[MAX];
+	int adj[MAX][MAX]; //정적할당
 
 public:
 	AdjMatGraph() { reset(); }
@@ -17,12 +17,12 @@ public:
 	void setEdge(int i, int j, int val) { adj[i][j] = val; }
 
 	bool isEmpty() { return size == 0; }
-	bool isFull() { return size >= MAXL; }
+	bool isFull() { return size >= MAX; }
 
 	void reset() {
 		size = 0;
-		for (int i = 0; i < MAXL; i++) {
-			for (int j = 0; j < MAXL; j++) {
+		for (int i = 0; i < MAX; i++) {
+			for (int j = 0; j < MAX; j++) {
 				setEdge(i, j, 0);
 			}
 		}

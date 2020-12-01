@@ -29,7 +29,7 @@ protected:
 	int size;
 	char vertices[MAX];
 	Node* adj[MAX];
-
+	
 public:
 	AdjListGraph():size(0){}
 	~AdjListGraph() { reset(); }

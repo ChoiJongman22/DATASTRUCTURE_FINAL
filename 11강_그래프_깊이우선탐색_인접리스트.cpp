@@ -53,7 +53,7 @@ public:
 
 	void insertEdge(int u, int v) {
 		adj[u] = new Node(v, adj[u]);
-		//adj[v] = new Node(u, adj[v]); 방향그래프... 아진짜책거지같네ㅡㅡ
+		//adj[v] = new Node(u, adj[v]); //방향그래프... 아진짜책거지같네ㅡㅡ
 	}
 
 	void display() {
