@@ -152,7 +152,6 @@ public:
 			case '-': return op1 - op2;
 			case '*': return op1 * op2;
 			case '/': return op1 / op2;
-
 			}
 			return 0;
 		}

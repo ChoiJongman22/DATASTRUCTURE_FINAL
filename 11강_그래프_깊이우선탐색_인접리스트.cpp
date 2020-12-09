@@ -53,7 +53,7 @@ public:
 
 	void insertEdge(int u, int v) {
 		adj[u] = new Node(v, adj[u]);
-		//adj[v] = new Node(u, adj[v]); //방향그래프... 아진짜책거지같네ㅡㅡ
+		adj[v] = new Node(u, adj[v]); //방향그래프... 아진짜책거지같네ㅡㅡ
 	}
 
 	void display() {
@@ -107,27 +107,43 @@ public:
 	}
 
 	void DFS(int v) {
+		char vertices2[MAX];
 		visited[v] = true;
+		vertices2[v] = vertices[v];
 		cout << getVertex(v) << " ";
-
+		
 		for (Node* p = adj[v]; p != NULL; p = p->getlink()) {
 			if (visited[p->getId()] == false) {
+				vertices2[p->getId()] = vertices[p->getId()];
 				DFS(p->getId());
 			}
 		}
+
+		SrchALGraph g3;
+
 	}
 	
 };
 
 
 int main() {
-	SrchALGraph g;
-	g.load("graph2.txt");
-	cout << "그래프(graph2.txt)" << endl;
-	g.display();
+	SrchALGraph g2;
+	for (int i = 0; i < 8; i++) {
+		g2.insertVertex('A' + i);
+	}
+	g2.insertEdge(0, 1);
+	g2.insertEdge(0, 4);
+	g2.insertEdge(0, 7);
+	g2.insertEdge(1, 5);
+	g2.insertEdge(2, 3);
+	g2.insertEdge(2, 4);
+	g2.insertEdge(3, 6);
+	g2.insertEdge(3, 7);
+	g2.insertEdge(4, 7);
+	g2.display();
 
 	cout << "DFS====> ";
-	g.resetVisited();
-	g.DFS(0);
+	g2.resetVisited();
+	g2.DFS(0);
 	cout << endl;
 }

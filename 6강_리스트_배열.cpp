@@ -59,6 +59,7 @@ public:
 		}
 		cout << endl;
 	}
+
 	void clear() { length = 0; }
 };
 
@@ -78,3 +79,7 @@ int main() {
 	list.clear();
 	list.display();
 }
+
+
+//정리: 배열로 구현한 리스트는 덮어쓰기가 핵심이다.
+//length의 개념을 잘 이해하고 있다면 문제가 없다.

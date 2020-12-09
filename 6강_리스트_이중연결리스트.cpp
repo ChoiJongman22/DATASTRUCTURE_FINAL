@@ -75,9 +75,34 @@ public:
 	int size() {
 		int count = 0;
 		for (Node2* p = getHead(); p != NULL; p = p->getNext()) {
+			count++;
+		}
+		return count;
+	}
+	void clear() { while (!isEmpty())delete remove(0); }
+
+	void display() {
+		cout << "이중 연결리스트 항목수 : " << size() << endl;
+		for (Node2* p = getHead(); p != NULL; p = p->getNext()) {
 			p->display();
 		}
 		cout << endl;
+
 	}
-	void clear() { while (!isEmpty())delete remove(0); }
+
 };
+
+
+int main() {
+	DbLinkedList a;
+	a.insert(0, new Node2(10));
+	a.insert(0, new Node2(20));
+	a.insert(1, new Node2(30));
+	a.insert(2, new Node2(40));
+	a.insert(2, new Node2(50));
+	a.insert(3, new Node2(60));
+	a.insert(4, new Node2(70));
+	a.insert(3, new Node2(80));
+	a.remove(2);
+	a.display();
+}

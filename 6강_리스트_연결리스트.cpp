@@ -7,6 +7,8 @@ private:
 	Node* link;
 	int data;
 public:
+	//노드에 데이터필드와 링크필드가 나눠져 있다.
+	//노드의 데이터값은 대입이고 링크는 가리키기(포인터)
 	Node(int val = 0):data(val),link(NULL){}
 	Node* getlink() { return link; }
 	int getData() {
@@ -29,6 +31,8 @@ public:
 		}
 		return removed;
 	}
+
+	//노드 클래스의 멤버함수는 LinkedList의 멤버함수를 수행한다.
 };
 
 class LinkedList {
@@ -49,6 +53,7 @@ public:
 		}
 		return n;
 	}
+	//해당함수가 핵심. getEntry함수가 제일 중요하다. 모든 함수에 getEntry함수로 앞에서 부터 탐색해서 n번째 노드에 접근.
 	void insert(int pos, Node* n) {
 		Node* prev = getEntry(pos - 1);
 		if (prev != NULL) {
@@ -59,6 +64,8 @@ public:
 		Node* prev = getEntry(pos - 1);
 		return prev->removeNext();
 	}
+
+	//멤버함수가 노드클래스의 멤버함수에 전달한다. 
 	
 	void replace(int pos, Node* n) {
 		Node* prev = getEntry(pos - 1);
