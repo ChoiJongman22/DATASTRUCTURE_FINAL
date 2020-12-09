@@ -2,7 +2,7 @@
 #include <functional>
 #include <iostream>
 using namespace std;
-
+//STL 잘 사용하자
 void heapSortDec(int a[], int n) {
 	priority_queue<int> maxHeap;
 	for (int i = 0; i < n; i++) {

@@ -17,8 +17,6 @@ public:
 	BinaryNode* getLeft() { return left; }
 	BinaryNode* getRight() { return right; }
 	bool isLeaf() { return left == NULL && right == NULL; }
-
-	
 };
 
 class BinaryTree {
@@ -41,8 +39,7 @@ public:
 			cout << " [ " << (char)node->getData() << " ] ";
 			inorder(node->getRight());
 		}
-	}
-
+	} 
 	void preorder(){
 		cout << endl << " preorder: ";
 		preorder(root);

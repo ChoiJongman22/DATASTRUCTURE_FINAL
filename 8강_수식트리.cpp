@@ -170,7 +170,4 @@ int main() {
 	BinaryNode* n7 = new BinaryNode('+', n3, n6);
 	tree2.setRoot(n7);
 	cout << "계산결과 : " << tree2.evaluate() << endl;
-
-
-
 }

@@ -1,28 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #define MAX 100
+#include <stdio.h>
 #define MAX_WORD_SIZE 40
 #define MAX_MEANING_SIZE 200
 #include <conio.h>
 #include <cstring>
 #include <string>
+#include <conio.h>
 using namespace std;
 
 class Record {
 private:
-	string word;
-	string meaning;
+	char word[MAX_WORD_SIZE];
+	char meaning[MAX_MEANING_SIZE];
 
 public:
-	Record(string w = "", string m = "") :word(w), meaning(m) {}
+	Record(char* w = "", char* m = "") {
+		set(w, m);
+	}
+	void set(char* w, char* m) {
+		strcpy(word, w);
+		strcpy(meaning, m);
+	}
 	int compare(Record* n) { return compare(n->word); }
-	int compare(string w) { return (w > word); }
-	int compareMeaning(string m) { return (meaning > m); }
-	void display() {
-		cout << word << ": " << meaning << endl;
-	}
-	void copy(Record* n) {
-		
-	}
+	int compare(char* w) { return strcmp(w, word); }
+	int compareMeaning(char* m) { return strcmp(meaning, m); }
+	void display() { cout << word << " : " << meaning; }
+	void copy(Record* n) { set(n->word, n->meaning); }
+
 
 };
 class BinaryNode:public Record {
@@ -32,7 +38,7 @@ protected:
 	BinaryNode* right;
 
 public:
-	BinaryNode(string w="",string m="")
+	BinaryNode(char* w="",char* m="")
 		:Record(w,m), left(NULL), right(NULL) {}
 	void setLeft(BinaryNode* l) { left = l; }
 	void setRight(BinaryNode* r) { right = r; }
@@ -113,13 +119,13 @@ public:
 	~BinSrchTree(void) {}
 
 
-	BinaryNode* search(string key) {
+	BinaryNode* search(char *key) {
 		
 		return searchRecur(root,key);
 
 	}
 
-	BinaryNode* searchRecur(BinaryNode* n, string key) {
+	BinaryNode* searchRecur(BinaryNode* n, char* key) {
 		if (n == NULL)return NULL;
 		if (n->compare(key)==0) {
 			return n;
@@ -162,7 +168,7 @@ public:
 		}
 	}
 
-	void remove(string data) {
+	void remove(char* data) {
 		if (isEmpty()) return;
 		BinaryNode* parent = NULL;
 		BinaryNode* node = root;
@@ -234,7 +240,7 @@ public:
 		cout << "나의 단어장 : " << endl;
 		if (!isEmpty())inorder(root);
 	}
-	void searchWord(string word) {
+	void searchWord(char* word) {
 		BinaryNode* node = search(word);
 		if (node != NULL) {
 			cout << " >>";
@@ -243,7 +249,7 @@ public:
 		else cout << " >> 등록되지 않은 단어: " << word << endl;
 
 	}
-	void searchMeaning(string m) {
+	void searchMeaning(char* m) {
 		BinaryNode* node = (isEmpty()) ? NULL : searchByMeaning(root, m);
 		if (node != NULL) {
 			cout << "      >>";
@@ -252,7 +258,7 @@ public:
 		else cout << "     >>  등록되지 않은 의미: m" << endl;
 	}
 
-	BinaryNode* searchByMeaning(BinaryNode* node, string m) {
+	BinaryNode* searchByMeaning(BinaryNode* node, char* m) {
 		if (node != NULL || node->compareMeaning(m) == 0)return node;
 		BinaryNode* theNode = searchByMeaning(node->getLeft(), m);
 		if (theNode != NULL)return theNode;
@@ -266,17 +272,33 @@ void help() { cout << "사용법: i - 추가 d - 삭제 w - 단어검색 m - 의미검색 p - �
 
 void main() {
 	char command;
-	string word;
-	string meaning;
+	char word[80];
+	char meaning[200];
 	Dictionary tree;
 	do {
 		help();
-		command = getche();
+		command = _getche();
 		cout << endl;
 		switch (command) {
-		case 'i': cout << "  > 삽입 단어: "; gets(word);
+		case 'i': printf(" > 삽입 단어: "); gets_s(word);
+			      printf(" > 단어 설명: "); gets_s(meaning);
+				  tree.insert(new BinaryNode(word, meaning));
+				  break;
+		case 'd': printf(" > 삭제 단어: "); gets_s(word);
+			tree.remove(word);
+			break;
+		case 'p': tree.printAllWords();
+			cout << endl;
+			break;
+		case 'w': printf(" > 검색 단어: "); gets_s(word);
+			tree.searchWord(word);
+			break;
+		case 'm': printf(" > 검색 의미: "); gets_s(word);
+			tree.searchMeaning(word);
+			break;
+					
 		}
-	}
+	} while (command != 'q');
 
 
 	
